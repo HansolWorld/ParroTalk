@@ -40,21 +40,8 @@ struct DetailSentenceView: View {
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
         .navigationBarItems(
             trailing: Button(action: {
-                let checkTranslate = chapter.sentences.filter { $0.translate == "" }
-                if checkTranslate.isEmpty {
-                    self.isRemember.toggle()
-                    selectedTab = 0
-                    Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
-                        if selectedTab < chapter.sentences.count {
-                            selectedTab += 1 // 다음 탭으로 이동
-                        } else {
-                            timer.invalidate() // 타이머 중지
-                            selectedTab = 0 // 선택 인덱스 초기화 (첫 번째 탭으로 돌아감)
-                        }
-                    }
-                } else {
-                    self.showAlert = true
-                }
+                self.checkMode()
+                self.timeIntervalPage()
             }) {
                 Image(systemName: isRemember ? "record.circle.fill" : "record.circle")
             }
@@ -63,6 +50,31 @@ struct DetailSentenceView: View {
             Button("Ok") {}
         } message: {
             Text("모든 문장을 번역해야합니다.")
+        }
+    }
+}
+
+extension DetailSentenceView {
+    private func checkMode() {
+        let checkTranslate = chapter.sentences.filter { $0.translate == "" }
+        if checkTranslate.isEmpty {
+            self.isRemember.toggle()
+            selectedTab = 0
+        } else {
+            self.showAlert = true
+        }
+    }
+    
+    private func timeIntervalPage() {
+        if self.isRemember == true {
+            Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+                if selectedTab < chapter.sentences.count {
+                    selectedTab += 1
+                } else {
+                    timer.invalidate()
+                    selectedTab = 0
+                }
+            }
         }
     }
     
