@@ -10,6 +10,7 @@ import AVFoundation
 
 struct DetailSentenceView: View {
     @StateObject var chapter: Chapter
+    @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var isRemember: Bool = false
     @State private var showAlert = false
     @State private var selectedTab = 0
@@ -22,6 +23,7 @@ struct DetailSentenceView: View {
                 VStack(alignment: .leading) {
                     if isRemember {
                         Text("\(chapter.sentences[index].translate)")
+                        Text(speechRecognizer.transcript)
                     } else {
                         Text(chapter.sentences[index].sentence)
                             .onTapGesture {
@@ -42,6 +44,8 @@ struct DetailSentenceView: View {
             trailing: Button(action: {
                 self.checkMode()
                 self.timeIntervalPage()
+                self.checkSentence()
+                
             }) {
                 Image(systemName: isRemember ? "record.circle.fill" : "record.circle")
             }
@@ -55,6 +59,14 @@ struct DetailSentenceView: View {
 }
 
 extension DetailSentenceView {
+    private func checkSentence() {
+        if self.isRemember {
+            speechRecognizer.stopTranscribing()
+        } else {
+            speechRecognizer.transcribe()
+        }
+    }
+    
     private func checkMode() {
         let checkTranslate = chapter.sentences.filter { $0.translate == "" }
         if checkTranslate.isEmpty {
@@ -73,6 +85,7 @@ extension DetailSentenceView {
                 } else {
                     timer.invalidate()
                     selectedTab = 0
+                    self.isRemember.toggle()
                 }
             }
         }

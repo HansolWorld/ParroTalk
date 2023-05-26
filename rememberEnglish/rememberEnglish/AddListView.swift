@@ -50,17 +50,6 @@ struct AddListView: View {
             Text("저장")
         }
     }
-    
-    private func addSentence() {
-        sentences.append(newSentence)
-        newSentence = ""
-    }
-    
-    private func removeSentence(_ sentence: String) {
-        if let index = sentences.firstIndex(of: sentence) {
-            sentences.remove(at: index)
-        }
-    }
 }
 
 struct SentenceView: View {
@@ -76,6 +65,19 @@ struct SentenceView: View {
             Button(action: onDelete) {
                 Image(systemName: "minus")
             }
+        }
+    }
+}
+
+extension AddListView {
+    private func addSentence() {
+        sentences.append(newSentence)
+        newSentence = ""
+    }
+    
+    private func removeSentence(_ sentence: String) {
+        if let index = sentences.firstIndex(of: sentence) {
+            sentences.remove(at: index)
         }
     }
 }
