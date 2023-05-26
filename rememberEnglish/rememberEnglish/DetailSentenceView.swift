@@ -12,7 +12,9 @@ struct DetailSentenceView: View {
     @StateObject var chapter: Chapter
     @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var isRemember: Bool = false
+    @State private var nowSentence: String = ""
     @State private var showAlert = false
+    @State private var rememberAlert = false
     @State private var selectedTab = 0
 
     let synthesizer = AVSpeechSynthesizer()
@@ -20,6 +22,7 @@ struct DetailSentenceView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             ForEach(chapter.sentences.indices, id: \.self) { index in
+                
                 VStack(alignment: .leading) {
                     if isRemember {
                         Text("\(chapter.sentences[index].translate)")
@@ -36,16 +39,18 @@ struct DetailSentenceView: View {
                     }
                 }
                 .padding(50)
+                .onAppear {
+                    self.nowSentence = chapter.sentences[index].sentence
+                }
             }
         }
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
         .navigationBarItems(
             trailing: Button(action: {
-                self.checkMode()
-                self.timeIntervalPage()
                 self.checkSentence()
-                
+                self.timeIntervalPage()
+                self.checkMode()
             }) {
                 Image(systemName: isRemember ? "record.circle.fill" : "record.circle")
             }
@@ -54,6 +59,11 @@ struct DetailSentenceView: View {
             Button("Ok") {}
         } message: {
             Text("모든 문장을 번역해야합니다.")
+        }
+        .alert("다시", isPresented: $rememberAlert) {
+            Button("Ok") {}
+        } message: {
+            Text("다시외우고 와라")
         }
     }
 }
@@ -78,15 +88,24 @@ extension DetailSentenceView {
     }
     
     private func timeIntervalPage() {
-        if self.isRemember == true {
-            Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+        if !self.isRemember{
+            Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { timer in
                 if selectedTab < chapter.sentences.count {
-                    selectedTab += 1
+                    if speechRecognizer.transcript.contains(nowSentence) {
+                        selectedTab += 1
+                    } else {
+                        timer.invalidate()
+                        selectedTab = 0
+                        self.rememberAlert = true
+                        self.isRemember.toggle()
+                    }
+                    
                 } else {
                     timer.invalidate()
                     selectedTab = 0
                     self.isRemember.toggle()
                 }
+                speechRecognizer.transcript = ""
             }
         }
     }

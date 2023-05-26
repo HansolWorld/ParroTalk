@@ -133,7 +133,11 @@ class SpeechRecognizer: ObservableObject {
     }
     
     private func speak(_ message: String) {
-        transcript = message
+//        transcript = message
+        DispatchQueue.main.async {
+            self.transcript = message
+        }
+
     }
     
     private func speakError(_ error: Error) {

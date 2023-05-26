@@ -15,6 +15,7 @@
 		FFE8AC2A2A18C3E800E93B94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE8AC292A18C3E800E93B94 /* Assets.xcassets */; };
 		FFE8AC2D2A18C3E800E93B94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE8AC2C2A18C3E800E93B94 /* Preview Assets.xcassets */; };
 		FFE8AC342A19D82900E93B94 /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8AC332A19D82900E93B94 /* DataStruct.swift */; };
+		FFF915972A2098DE003C279F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF915962A2098DE003C279F /* Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		FFE8AC292A18C3E800E93B94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFE8AC2C2A18C3E800E93B94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FFE8AC332A19D82900E93B94 /* DataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStruct.swift; sourceTree = "<group>"; };
+		FFF915962A2098DE003C279F /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				FF5A64162A1CB50800D07D7F /* AddListView.swift */,
 				FFE8AC332A19D82900E93B94 /* DataStruct.swift */,
 				FF5A64142A1B949000D07D7F /* STT.swift */,
+				FFF915962A2098DE003C279F /* Test.swift */,
 				FFE8AC292A18C3E800E93B94 /* Assets.xcassets */,
 				FFE8AC2B2A18C3E800E93B94 /* Preview Content */,
 			);
@@ -152,6 +155,7 @@
 				FFE8AC282A18C3E700E93B94 /* ContentView.swift in Sources */,
 				FFE8AC262A18C3E700E93B94 /* rememberEnglishApp.swift in Sources */,
 				FFE8AC342A19D82900E93B94 /* DataStruct.swift in Sources */,
+				FFF915972A2098DE003C279F /* Test.swift in Sources */,
 				FF5A64152A1B949000D07D7F /* STT.swift in Sources */,
 				FF5A64192A1CB53600D07D7F /* DetailSentenceView.swift in Sources */,
 				FF5A64172A1CB50800D07D7F /* AddListView.swift in Sources */,
