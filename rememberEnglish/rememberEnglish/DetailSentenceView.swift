@@ -49,7 +49,9 @@ struct DetailSentenceView: View {
         .navigationBarItems(
             trailing: Button(action: {
                 self.checkSentence()
-                self.timeIntervalPage()
+                if !self.isRemember {
+                    self.timeIntervalPage()
+                }
                 self.checkMode()
             }) {
                 Image(systemName: isRemember ? "record.circle.fill" : "record.circle")
@@ -69,12 +71,45 @@ struct DetailSentenceView: View {
 }
 
 extension DetailSentenceView {
+    private func speechText(of sentence: String) {
+        let utterance = AVSpeechUtterance(string: sentence)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
     private func checkSentence() {
         if self.isRemember {
             speechRecognizer.stopTranscribing()
         } else {
             speechRecognizer.transcribe()
         }
+    }
+    
+    private func timeIntervalPage() {
+        Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { timer in
+            if self.isRemember {
+                stopTime(timer: timer)
+            }
+            
+            if selectedTab < chapter.sentences.count {
+                if speechRecognizer.transcript.contains(nowSentence) {
+                    speechRecognizer.reset()
+                    self.selectedTab += 1
+                } else {
+                    self.rememberAlert = true
+                    stopTime(timer: timer)
+                }
+            } else {
+                stopTime(timer: timer)
+            }
+        }
+    }
+    
+    private func stopTime(timer: Timer) {
+        timer.invalidate()
+        self.selectedTab = 0
+        self.isRemember.toggle()
     }
     
     private func checkMode() {
@@ -85,35 +120,5 @@ extension DetailSentenceView {
         } else {
             self.showAlert = true
         }
-    }
-    
-    private func timeIntervalPage() {
-        if !self.isRemember{
-            Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { timer in
-                if selectedTab < chapter.sentences.count {
-                    if speechRecognizer.transcript.contains(nowSentence) {
-                        selectedTab += 1
-                    } else {
-                        timer.invalidate()
-                        selectedTab = 0
-                        self.rememberAlert = true
-                        self.isRemember.toggle()
-                    }
-                    
-                } else {
-                    timer.invalidate()
-                    selectedTab = 0
-                    self.isRemember.toggle()
-                }
-                speechRecognizer.transcript = ""
-            }
-        }
-    }
-    
-    private func speechText(of sentence: String) {
-        let utterance = AVSpeechUtterance(string: sentence)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
-        synthesizer.speak(utterance)
     }
 }
