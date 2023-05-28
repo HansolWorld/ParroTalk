@@ -33,7 +33,7 @@ struct AddListView: View {
                 }) {
                     Image(systemName: "plus")
                 }
-                .disabled(newSentence.isEmpty)
+                .disabled(newSentence.isEmpty || newTranslate.isEmpty)
                 .padding(.leading, 8)
             }
         }

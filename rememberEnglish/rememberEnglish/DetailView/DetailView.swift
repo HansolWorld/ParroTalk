@@ -67,7 +67,8 @@ extension DetailView {
         let utterance = AVSpeechUtterance(string: sentence)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         utterance.rate = 0.5
-        synthesizer.speak(utterance)
+        print("aaaaa", utterance)
+        self.synthesizer.speak(utterance)
     }
 
     private func checkSentence() {
