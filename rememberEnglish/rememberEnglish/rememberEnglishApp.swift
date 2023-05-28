@@ -9,10 +9,13 @@ import SwiftUI
 
 @main
 struct rememberEnglishApp: App {
+    @StateObject private var dataController = DataController()
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack {
                 ContentView()
+                    .environment(\.managedObjectContext, dataController.container.viewContext)
             }
         }
     }

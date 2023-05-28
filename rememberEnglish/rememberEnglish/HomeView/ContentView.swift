@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var data: Chapters = Chapters()
     @State private var isShowAddSheet = false
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)]) var chapters: FetchedResults<Chapter>
     
     var body: some View {
         List {
-            ForEach(data.chapters) { chapter in
-                NavigationLink(destination: DetailSentenceView(chapter: chapter)) {
-                    Text(chapter.section)
+            ForEach(chapters) { chapter in
+                NavigationLink(destination: DetailView(chapter: chapter)) {
+                    Text(chapter.wrappedTitle)
                         .padding(10)
                 }
                 .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                     Button(action: {
-                        deleteChapter(chapter)
+                        DataController().deleteChapter(chapter: chapter, context: managedObjectContext)
                     }) {
                         Label("Delete", systemImage: "trash")
                     }
@@ -36,22 +38,15 @@ struct ContentView: View {
             }
         )
         .sheet(isPresented: $isShowAddSheet) {
-            AddListView(data: $data, isShowAddSheet: $isShowAddSheet)
-        }
-    }
-    
-    private func deleteChapter(_ chapter: Chapter) {
-        if let index = data.chapters.firstIndex(of: chapter) {
-            data.chapters.remove(at: index)
+            AddListView()
         }
     }
 }
 
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            ContentView()
+extension ContentView {
+    private func deleteChapter(offsets: IndexSet) {
+        withAnimation {
+            offsets.map { chapters[$0] }.forEach(managedObjectContext.delete)
         }
     }
 }
