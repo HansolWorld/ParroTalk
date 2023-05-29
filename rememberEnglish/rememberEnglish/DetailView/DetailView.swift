@@ -9,49 +9,54 @@ import SwiftUI
 import AVFoundation
 
 struct DetailView: View {
-    @State private var selectedTab = 0
-    @State private var nowSentence: String = ""
+    @State private var seletecdIndex: Int = 0
+    @State private var timeCount: Int = 0
+    @State private var currentSentence: String = ""
     @State private var translate: String = ""
-    @State private var isRemember: Bool = false
-    @State private var showAlert = false
-    @State private var rememberAlert = false
+    @State private var isMode: Mode = .remember
+    @State private var showAlert: Bool = false
+    @State private var rememberAlert: Bool = false
+    @State private var timer: Timer?
     
     @StateObject var speechRecognizer = SpeechRecognizer()
+    
     
     let synthesizer = AVSpeechSynthesizer()
     var chapter: FetchedResults<Chapter>.Element
 
     var body: some View {
-        TabView(selection: $selectedTab) {
-            ForEach(chapter.sentenceArray.indices, id: \.self) { index in
-                VStack(alignment: .leading) {
-                    if isRemember {
-                        Text("\(chapter.sentenceArray[index].wrappedTranslate)")
-                        Text(speechRecognizer.transcript)
-                    } else {
-                        Text(chapter.sentenceArray[index].wrappedSentence)
+        TabView(selection: $seletecdIndex) {
+            ForEach(Array(self.chapter.sentenceArray.enumerated()), id: \.0) { index, sentence in
+                VStack(alignment: .center) {
+                    switch self.isMode {
+                    case .test:
+                        Text("\(10 - self.timeCount)")
+                            .font(.headline)
+                            .padding(.bottom, 20)
+                        Text("\(self.chapter.sentenceArray[seletecdIndex].wrappedTranslate)")
+                        Text(self.speechRecognizer.transcript)
+                    case .remember:
+                        Text(sentence.wrappedSentence)
                             .onTapGesture {
-                                speechText(of: chapter.sentenceArray[index].wrappedSentence)
+                                self.speechText(to: sentence.wrappedSentence)
+                                seletecdIndex = index
                             }
-                        Text("\(chapter.sentenceArray[index].wrappedTranslate)")
+                        Text("\(sentence.wrappedTranslate)")
                     }
                 }
-                .tag(index)
                 .padding(50)
-                .onAppear {
-                    self.nowSentence = chapter.sentenceArray[index].wrappedSentence
-                }
+                .tag(index)
             }
         }
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
         .navigationBarItems(
             trailing: Button(action: {
-                self.checkSentence()
-                self.timeIntervalPage()
                 self.checkMode()
+                self.startSpeechRecognizer()
+                self.timeIntervalPage()
             }) {
-                Image(systemName: isRemember ? "record.circle.fill" : "record.circle")
+                Image(systemName: isMode == .test ? "record.circle.fill" : "record.circle")
             }
         )
         .alert("다시", isPresented: $rememberAlert) {
@@ -63,46 +68,56 @@ struct DetailView: View {
 }
 
 extension DetailView {
-    private func speechText(of sentence: String) {
+    private func speechText(to sentence: String) {
         let utterance = AVSpeechUtterance(string: sentence)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         utterance.rate = 0.5
-        print("aaaaa", utterance)
+        
         self.synthesizer.speak(utterance)
     }
 
-    private func checkSentence() {
-        if self.isRemember {
-            speechRecognizer.stopTranscribing()
-        } else {
-            speechRecognizer.transcribe()
+    private func startSpeechRecognizer() {
+        switch self.isMode {
+        case .remember:
+            self.speechRecognizer.stopTranscribing()
+        case .test:
+            self.speechRecognizer.transcribe()
         }
     }
 
     private func timeIntervalPage() {
-        if !self.isRemember {
-            Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { timer in
-                if selectedTab < chapter.sentenceArray.count && speechRecognizer.transcript.contains(nowSentence) {
-                        speechRecognizer.reset()
-                        self.selectedTab += 1
-                } else {
-                    self.rememberAlert = true
-                    stopTime(timer: timer)
+        switch self.isMode {
+        case .remember:
+            stopTimer()
+        case .test:
+            self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+                self.timeCount += 1
+                if self.timeCount == 10 {
+                    if self.speechRecognizer.transcript.contains(self.currentSentence) {
+                        self.timeCount = 0
+                        self.seletecdIndex += 1
+                    } else {
+                        stopTimer()
+                        self.rememberAlert = true
+                    }
+                }
+                
+                if self.seletecdIndex == chapter.sentenceArray.count {
+                    stopTimer()
                 }
             }
         }
     }
-
-    private func stopTime(timer: Timer) {
-        timer.invalidate()
-        self.selectedTab = 0
-        self.isRemember.toggle()
+    
+    private func stopTimer() {
+        self.timer?.invalidate()
+        self.timeCount = 0
+        self.seletecdIndex = 0
+        self.isMode = .remember
     }
 
     private func checkMode() {
-        self.isRemember.toggle()
-        if !self.isRemember {
-            selectedTab = 0
-        }
+        self.isMode.toggle()
+        self.seletecdIndex = 0
     }
 }

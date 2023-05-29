@@ -21,6 +21,7 @@
 		FFF915F52A231ED2003C279F /* Sentence+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF915F32A231ED2003C279F /* Sentence+CoreDataClass.swift */; };
 		FFF915F62A231ED2003C279F /* Chapter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF915F42A231ED2003C279F /* Chapter+CoreDataClass.swift */; };
 		FFF915FA2A232BB7003C279F /* AddSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF915F92A232BB7003C279F /* AddSentence.swift */; };
+		FFF915FE2A24BC3A003C279F /* DetailViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF915FD2A24BC3A003C279F /* DetailViewMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		FFF915F32A231ED2003C279F /* Sentence+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sentence+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FFF915F42A231ED2003C279F /* Chapter+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chapter+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FFF915F92A232BB7003C279F /* AddSentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSentence.swift; sourceTree = "<group>"; };
+		FFF915FD2A24BC3A003C279F /* DetailViewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewMode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				FF5A64182A1CB53600D07D7F /* DetailView.swift */,
+				FFF915FD2A24BC3A003C279F /* DetailViewMode.swift */,
 			);
 			path = DetailView;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				FFF915F52A231ED2003C279F /* Sentence+CoreDataClass.swift in Sources */,
 				FFF915C62A2219E0003C279F /* ChapterModel.xcdatamodeld in Sources */,
 				FF5A64172A1CB50800D07D7F /* AddListView.swift in Sources */,
+				FFF915FE2A24BC3A003C279F /* DetailViewMode.swift in Sources */,
 				FFF915F22A231630003C279F /* Chapter+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
