@@ -77,7 +77,6 @@
 				FFF915F72A232109003C279F /* CoreDataController */,
 				FFF915F82A232221003C279F /* HomeView */,
 				FFF915FC2A232F09003C279F /* DetailView */,
-				FFF915FB2A232EFC003C279F /* Model */,
 				FFE8AC292A18C3E800E93B94 /* Assets.xcassets */,
 				FFE8AC2B2A18C3E800E93B94 /* Preview Content */,
 			);
@@ -111,7 +110,7 @@
 			children = (
 				FFE8AC272A18C3E700E93B94 /* ContentView.swift */,
 				FF5A64162A1CB50800D07D7F /* AddListView.swift */,
-				FFF915F92A232BB7003C279F /* AddSentence.swift */,
+				FFF915FF2A24BF0A003C279F /* Model */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -119,6 +118,7 @@
 		FFF915FB2A232EFC003C279F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FFF915FD2A24BC3A003C279F /* DetailViewMode.swift */,
 				FF5A64142A1B949000D07D7F /* STT.swift */,
 			);
 			path = Model;
@@ -128,9 +128,17 @@
 			isa = PBXGroup;
 			children = (
 				FF5A64182A1CB53600D07D7F /* DetailView.swift */,
-				FFF915FD2A24BC3A003C279F /* DetailViewMode.swift */,
+				FFF915FB2A232EFC003C279F /* Model */,
 			);
 			path = DetailView;
+			sourceTree = "<group>";
+		};
+		FFF915FF2A24BF0A003C279F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FFF915F92A232BB7003C279F /* AddSentence.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

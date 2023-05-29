@@ -32,7 +32,7 @@ struct DetailView: View {
                         Text("\(10 - self.timeCount)")
                             .font(.headline)
                             .padding(.bottom, 20)
-                        Text("\(self.chapter.sentenceArray[seletecdIndex].wrappedTranslate)")
+                        Text(self.chapter.sentenceArray[seletecdIndex].wrappedTranslate)
                         Text(self.speechRecognizer.transcript)
                     case .remember:
                         Text(sentence.wrappedSentence)
@@ -40,7 +40,7 @@ struct DetailView: View {
                                 self.speechText(to: sentence.wrappedSentence)
                                 seletecdIndex = index
                             }
-                        Text("\(sentence.wrappedTranslate)")
+                        Text(sentence.wrappedTranslate)
                     }
                 }
                 .padding(50)
