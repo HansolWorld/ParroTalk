@@ -14,7 +14,6 @@ struct DetailView: View {
     @State private var currentSentence: String = ""
     @State private var translate: String = ""
     @State private var isMode: Mode = .remember
-    @State private var showAlert: Bool = false
     @State private var rememberAlert: Bool = false
     @State private var timer: Timer?
     
