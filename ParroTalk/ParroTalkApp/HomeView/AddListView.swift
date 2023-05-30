@@ -1,6 +1,6 @@
 //
 //  AddListView.swift
-//  rememberEnglish
+//  ParroTalk
 //
 //  Created by apple on 2023/05/23.
 //

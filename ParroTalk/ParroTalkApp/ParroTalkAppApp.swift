@@ -1,6 +1,6 @@
 //
-//  rememberEnglishApp.swift
-//  rememberEnglish
+//  ParroTalkAppApp.swift
+//  ParroTalk
 //
 //  Created by apple on 2023/05/20.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct rememberEnglishApp: App {
+struct ParroTalkAppApp: App {
     @StateObject private var dataController = DataController()
     
     var body: some Scene {

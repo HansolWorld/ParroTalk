@@ -10,7 +10,7 @@
 		FF5A64152A1B949000D07D7F /* STT.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A64142A1B949000D07D7F /* STT.swift */; };
 		FF5A64172A1CB50800D07D7F /* AddListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A64162A1CB50800D07D7F /* AddListView.swift */; };
 		FF5A64192A1CB53600D07D7F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A64182A1CB53600D07D7F /* DetailView.swift */; };
-		FFE8AC262A18C3E700E93B94 /* rememberEnglishApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8AC252A18C3E700E93B94 /* rememberEnglishApp.swift */; };
+		FFE8AC262A18C3E700E93B94 /* ParroTalkAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8AC252A18C3E700E93B94 /* ParroTalkAppApp.swift */; };
 		FFE8AC282A18C3E700E93B94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8AC272A18C3E700E93B94 /* ContentView.swift */; };
 		FFE8AC2A2A18C3E800E93B94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE8AC292A18C3E800E93B94 /* Assets.xcassets */; };
 		FFE8AC2D2A18C3E800E93B94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE8AC2C2A18C3E800E93B94 /* Preview Assets.xcassets */; };
@@ -28,8 +28,8 @@
 		FF5A64142A1B949000D07D7F /* STT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STT.swift; sourceTree = "<group>"; };
 		FF5A64162A1CB50800D07D7F /* AddListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListView.swift; sourceTree = "<group>"; };
 		FF5A64182A1CB53600D07D7F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		FFE8AC222A18C3E700E93B94 /* ParroTalkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParroTalkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFE8AC252A18C3E700E93B94 /* rememberEnglishApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rememberEnglishApp.swift; sourceTree = "<group>"; };
+		FFE8AC222A18C3E700E93B94 /* ParroTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParroTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFE8AC252A18C3E700E93B94 /* ParroTalkAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParroTalkAppApp.swift; sourceTree = "<group>"; };
 		FFE8AC272A18C3E700E93B94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FFE8AC292A18C3E800E93B94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFE8AC2C2A18C3E800E93B94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 		FFE8AC192A18C3E700E93B94 = {
 			isa = PBXGroup;
 			children = (
-				FFE8AC242A18C3E700E93B94 /* rememberEnglish */,
+				FFE8AC242A18C3E700E93B94 /* ParroTalkApp */,
 				FFE8AC232A18C3E700E93B94 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,22 +65,22 @@
 		FFE8AC232A18C3E700E93B94 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FFE8AC222A18C3E700E93B94 /* ParroTalkApp.app */,
+				FFE8AC222A18C3E700E93B94 /* ParroTalk.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FFE8AC242A18C3E700E93B94 /* rememberEnglish */ = {
+		FFE8AC242A18C3E700E93B94 /* ParroTalkApp */ = {
 			isa = PBXGroup;
 			children = (
-				FFE8AC252A18C3E700E93B94 /* rememberEnglishApp.swift */,
+				FFE8AC252A18C3E700E93B94 /* ParroTalkAppApp.swift */,
 				FFF915F72A232109003C279F /* CoreDataController */,
 				FFF915F82A232221003C279F /* HomeView */,
 				FFF915FC2A232F09003C279F /* DetailView */,
 				FFE8AC292A18C3E800E93B94 /* Assets.xcassets */,
 				FFE8AC2B2A18C3E800E93B94 /* Preview Content */,
 			);
-			path = rememberEnglish;
+			path = ParroTalkApp;
 			sourceTree = "<group>";
 		};
 		FFE8AC2B2A18C3E800E93B94 /* Preview Content */ = {
@@ -144,9 +144,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FFE8AC212A18C3E700E93B94 /* ParroTalkApp */ = {
+		FFE8AC212A18C3E700E93B94 /* ParroTalk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FFE8AC302A18C3E800E93B94 /* Build configuration list for PBXNativeTarget "ParroTalkApp" */;
+			buildConfigurationList = FFE8AC302A18C3E800E93B94 /* Build configuration list for PBXNativeTarget "ParroTalk" */;
 			buildPhases = (
 				FFE8AC1E2A18C3E700E93B94 /* Sources */,
 				FFE8AC1F2A18C3E700E93B94 /* Frameworks */,
@@ -156,9 +156,9 @@
 			);
 			dependencies = (
 			);
-			name = ParroTalkApp;
+			name = ParroTalk;
 			productName = rememberEnglish;
-			productReference = FFE8AC222A18C3E700E93B94 /* ParroTalkApp.app */;
+			productReference = FFE8AC222A18C3E700E93B94 /* ParroTalk.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -176,7 +176,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FFE8AC1D2A18C3E700E93B94 /* Build configuration list for PBXProject "ParroTalkApp" */;
+			buildConfigurationList = FFE8AC1D2A18C3E700E93B94 /* Build configuration list for PBXProject "ParroTalk" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -189,7 +189,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FFE8AC212A18C3E700E93B94 /* ParroTalkApp */,
+				FFE8AC212A18C3E700E93B94 /* ParroTalk */,
 			);
 		};
 /* End PBXProject section */
@@ -212,7 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFE8AC282A18C3E700E93B94 /* ContentView.swift in Sources */,
-				FFE8AC262A18C3E700E93B94 /* rememberEnglishApp.swift in Sources */,
+				FFE8AC262A18C3E700E93B94 /* ParroTalkAppApp.swift in Sources */,
 				FFF915FA2A232BB7003C279F /* AddSentence.swift in Sources */,
 				FFF915C82A221C4A003C279F /* DataController.swift in Sources */,
 				FF5A64152A1B949000D07D7F /* STT.swift in Sources */,
@@ -351,7 +351,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"rememberEnglish/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ParroTalkApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KRY967CND6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -382,7 +382,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"rememberEnglish/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ParroTalkApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KRY967CND6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -409,7 +409,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FFE8AC1D2A18C3E700E93B94 /* Build configuration list for PBXProject "ParroTalkApp" */ = {
+		FFE8AC1D2A18C3E700E93B94 /* Build configuration list for PBXProject "ParroTalk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FFE8AC2E2A18C3E800E93B94 /* Debug */,
@@ -418,7 +418,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FFE8AC302A18C3E800E93B94 /* Build configuration list for PBXNativeTarget "ParroTalkApp" */ = {
+		FFE8AC302A18C3E800E93B94 /* Build configuration list for PBXNativeTarget "ParroTalk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FFE8AC312A18C3E800E93B94 /* Debug */,
