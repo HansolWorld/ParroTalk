@@ -10,8 +10,8 @@ import SwiftUI
 struct AddListView: View {
     @State var title: String = ""
     @State private var sentences: [AddSentence] = []
-    @State private var newSentence: String = ""
-    @State private var newTranslate: String = ""
+    @State private var currentSentence: String = ""
+    @State private var currentTranslate: String = ""
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.dismiss) var dismiss
     
@@ -21,11 +21,11 @@ struct AddListView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.bottom, 10)
             HStack {
-                TextField("Enter sentence", text: $newSentence)
+                TextField("Enter sentence", text: $currentSentence)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }
             HStack {
-                TextField("Enter translate", text: $newTranslate)
+                TextField("Enter translate", text: $currentTranslate)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
                 Button(action: {
@@ -33,7 +33,7 @@ struct AddListView: View {
                 }) {
                     Image(systemName: "plus")
                 }
-                .disabled(newSentence.isEmpty || newTranslate.isEmpty)
+                .disabled(currentSentence.isEmpty || currentTranslate.isEmpty)
                 .padding(.leading, 8)
             }
         }
@@ -77,10 +77,10 @@ struct SentenceView: View {
 
 extension AddListView {
     private func addSentence() {
-        let newAddSentence = AddSentence(sentence: newSentence, translate: newTranslate)
+        let newAddSentence = AddSentence(sentence: currentSentence, translate: currentTranslate)
         self.sentences.append(newAddSentence)
-        self.newSentence = ""
-        self.newTranslate = ""
+        self.currentSentence = ""
+        self.currentTranslate = ""
     }
     
     private func removeSentence(_ sentence: AddSentence) {

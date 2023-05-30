@@ -28,7 +28,7 @@
 		FF5A64142A1B949000D07D7F /* STT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STT.swift; sourceTree = "<group>"; };
 		FF5A64162A1CB50800D07D7F /* AddListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListView.swift; sourceTree = "<group>"; };
 		FF5A64182A1CB53600D07D7F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		FFE8AC222A18C3E700E93B94 /* rememberEnglish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rememberEnglish.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFE8AC222A18C3E700E93B94 /* ParroTalkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParroTalkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE8AC252A18C3E700E93B94 /* rememberEnglishApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rememberEnglishApp.swift; sourceTree = "<group>"; };
 		FFE8AC272A18C3E700E93B94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FFE8AC292A18C3E800E93B94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 		FFE8AC232A18C3E700E93B94 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FFE8AC222A18C3E700E93B94 /* rememberEnglish.app */,
+				FFE8AC222A18C3E700E93B94 /* ParroTalkApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,9 +144,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FFE8AC212A18C3E700E93B94 /* rememberEnglish */ = {
+		FFE8AC212A18C3E700E93B94 /* ParroTalkApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FFE8AC302A18C3E800E93B94 /* Build configuration list for PBXNativeTarget "rememberEnglish" */;
+			buildConfigurationList = FFE8AC302A18C3E800E93B94 /* Build configuration list for PBXNativeTarget "ParroTalkApp" */;
 			buildPhases = (
 				FFE8AC1E2A18C3E700E93B94 /* Sources */,
 				FFE8AC1F2A18C3E700E93B94 /* Frameworks */,
@@ -156,9 +156,9 @@
 			);
 			dependencies = (
 			);
-			name = rememberEnglish;
+			name = ParroTalkApp;
 			productName = rememberEnglish;
-			productReference = FFE8AC222A18C3E700E93B94 /* rememberEnglish.app */;
+			productReference = FFE8AC222A18C3E700E93B94 /* ParroTalkApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -176,7 +176,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FFE8AC1D2A18C3E700E93B94 /* Build configuration list for PBXProject "rememberEnglish" */;
+			buildConfigurationList = FFE8AC1D2A18C3E700E93B94 /* Build configuration list for PBXProject "ParroTalkApp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -189,7 +189,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FFE8AC212A18C3E700E93B94 /* rememberEnglish */,
+				FFE8AC212A18C3E700E93B94 /* ParroTalkApp */,
 			);
 		};
 /* End PBXProject section */
@@ -409,7 +409,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FFE8AC1D2A18C3E700E93B94 /* Build configuration list for PBXProject "rememberEnglish" */ = {
+		FFE8AC1D2A18C3E700E93B94 /* Build configuration list for PBXProject "ParroTalkApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FFE8AC2E2A18C3E800E93B94 /* Debug */,
@@ -418,7 +418,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FFE8AC302A18C3E800E93B94 /* Build configuration list for PBXNativeTarget "rememberEnglish" */ = {
+		FFE8AC302A18C3E800E93B94 /* Build configuration list for PBXNativeTarget "ParroTalkApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FFE8AC312A18C3E800E93B94 /* Debug */,

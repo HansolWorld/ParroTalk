@@ -35,6 +35,7 @@ class DataController: ObservableObject {
         
         sentences.forEach {sent in
             let sentence = Sentence(context: context)
+            sentence.date = Date()
             sentence.chapter = chapter
             sentence.sentence = sent.sentence
             sentence.translate = sent.translate
