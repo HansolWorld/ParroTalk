@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import OSLog
 
 class DataController: ObservableObject {
     let container = NSPersistentContainer(name: "ChapterModel")
@@ -14,7 +15,7 @@ class DataController: ObservableObject {
     init() {
         container.loadPersistentStores { desc, error in
             if let error = error {
-                print("Failed to load the data \(error.localizedDescription)")
+                os_log("Failed to load the data \(error.localizedDescription)")
             }
         }
     }
@@ -22,9 +23,9 @@ class DataController: ObservableObject {
     func save(context: NSManagedObjectContext) {
         do {
             try context.save()
-            print("Data Saved ")
+            os_log("Data Saved ")
         } catch {
-            print("Failed to save data")
+            os_log("Failed to save data")
         }
     }
     
@@ -49,7 +50,7 @@ class DataController: ObservableObject {
         do {
             try context.save()
         } catch {
-            print("Failed to delete Chapter")
+            os_log("Failed to delete Chapter")
         }
     }
 }
