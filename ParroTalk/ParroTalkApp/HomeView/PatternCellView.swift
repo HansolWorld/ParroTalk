@@ -12,18 +12,28 @@ struct PatternCellView: View {
         HStack {
             VStack {
                 Text("im gonna")
+                    .modifier(BodyTitleModifier())
                 Text("난 ~ 할거야")
+                    .modifier(BodyContentModifier())
             }
             Spacer()
-            VStack {
+            VStack(alignment: .trailing) {
                 Text("학습전")
-                    .padding(3)
-                    .background(Color("AccentColor"))
-                    .cornerRadius(4)
-                Image(systemName: "chevron.right.circle.fill")
+                    .modifier(LabelContentModifier())
+                    .padding(.bottom, 15)
+                Image(systemName: "chevron.forward.circle.fill")
+                    .resizable()
+                    .frame(width: 35, height: 35)
                     .foregroundColor(.accentColor)
             }
+            .padding([.top, .bottom], 20)
         }
+        .padding([.leading, .trailing], 28)
+        .background(.white)
+        .cornerRadius(25, corners: [.bottomRight, .topLeft, .topRight])
+        .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.33), radius: 0.6)
+        .padding(27)
+        
     }
 }
 

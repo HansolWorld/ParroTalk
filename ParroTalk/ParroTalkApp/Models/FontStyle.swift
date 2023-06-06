@@ -29,6 +29,8 @@ struct LabelContentModifier: ViewModifier {
         content
             .font(.system(size: 10))
             .fontWeight(.regular)
+            .padding([.bottom, .top], 3)
+            .padding([.leading, .trailing], 10)
             .background(Color("AccentColor"))
             .cornerRadius(4)
     }
