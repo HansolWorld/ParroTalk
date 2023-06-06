@@ -10,6 +10,9 @@
 		FF5A64152A1B949000D07D7F /* STT.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A64142A1B949000D07D7F /* STT.swift */; };
 		FF5A64172A1CB50800D07D7F /* AddListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A64162A1CB50800D07D7F /* AddListView.swift */; };
 		FF5A64192A1CB53600D07D7F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A64182A1CB53600D07D7F /* DetailView.swift */; };
+		FF61ACA92A2C25F1006AE167 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF61ACA82A2C25F1006AE167 /* Launch Screen.storyboard */; };
+		FF61ACC52A2F0FB3006AE167 /* PatternCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF61ACC42A2F0FB3006AE167 /* PatternCellView.swift */; };
+		FF61ACC82A2F123E006AE167 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF61ACC72A2F123E006AE167 /* FontStyle.swift */; };
 		FFE8AC262A18C3E700E93B94 /* ParroTalkAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8AC252A18C3E700E93B94 /* ParroTalkAppApp.swift */; };
 		FFE8AC282A18C3E700E93B94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8AC272A18C3E700E93B94 /* ContentView.swift */; };
 		FFE8AC2A2A18C3E800E93B94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE8AC292A18C3E800E93B94 /* Assets.xcassets */; };
@@ -28,6 +31,10 @@
 		FF5A64142A1B949000D07D7F /* STT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STT.swift; sourceTree = "<group>"; };
 		FF5A64162A1CB50800D07D7F /* AddListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListView.swift; sourceTree = "<group>"; };
 		FF5A64182A1CB53600D07D7F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		FF61ACA72A2C244D006AE167 /* ParroTalk-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ParroTalk-Info.plist"; sourceTree = "<group>"; };
+		FF61ACA82A2C25F1006AE167 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		FF61ACC42A2F0FB3006AE167 /* PatternCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternCellView.swift; sourceTree = "<group>"; };
+		FF61ACC72A2F123E006AE167 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		FFE8AC222A18C3E700E93B94 /* ParroTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParroTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE8AC252A18C3E700E93B94 /* ParroTalkAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParroTalkAppApp.swift; sourceTree = "<group>"; };
 		FFE8AC272A18C3E700E93B94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,9 +61,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF61ACC62A2F1222006AE167 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FFF915F92A232BB7003C279F /* AddSentence.swift */,
+				FF61ACC72A2F123E006AE167 /* FontStyle.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FFE8AC192A18C3E700E93B94 = {
 			isa = PBXGroup;
 			children = (
+				FF61ACA72A2C244D006AE167 /* ParroTalk-Info.plist */,
 				FFE8AC242A18C3E700E93B94 /* ParroTalkApp */,
 				FFE8AC232A18C3E700E93B94 /* Products */,
 			);
@@ -74,8 +91,10 @@
 			isa = PBXGroup;
 			children = (
 				FFE8AC252A18C3E700E93B94 /* ParroTalkAppApp.swift */,
+				FF61ACA82A2C25F1006AE167 /* Launch Screen.storyboard */,
 				FFF915F72A232109003C279F /* CoreDataController */,
 				FFF915F82A232221003C279F /* HomeView */,
+				FF61ACC62A2F1222006AE167 /* Models */,
 				FFF915FC2A232F09003C279F /* DetailView */,
 				FFE8AC292A18C3E800E93B94 /* Assets.xcassets */,
 				FFE8AC2B2A18C3E800E93B94 /* Preview Content */,
@@ -109,8 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				FFE8AC272A18C3E700E93B94 /* ContentView.swift */,
+				FF61ACC42A2F0FB3006AE167 /* PatternCellView.swift */,
 				FF5A64162A1CB50800D07D7F /* AddListView.swift */,
-				FFF915FF2A24BF0A003C279F /* Model */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -131,14 +150,6 @@
 				FFF915FB2A232EFC003C279F /* Model */,
 			);
 			path = DetailView;
-			sourceTree = "<group>";
-		};
-		FFF915FF2A24BF0A003C279F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				FFF915F92A232BB7003C279F /* AddSentence.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF61ACA92A2C25F1006AE167 /* Launch Screen.storyboard in Resources */,
 				FFE8AC2D2A18C3E800E93B94 /* Preview Assets.xcassets in Resources */,
 				FFE8AC2A2A18C3E800E93B94 /* Assets.xcassets in Resources */,
 			);
@@ -222,8 +234,10 @@
 				FFF915F52A231ED2003C279F /* Sentence+CoreDataClass.swift in Sources */,
 				FFF915C62A2219E0003C279F /* ChapterModel.xcdatamodeld in Sources */,
 				FF5A64172A1CB50800D07D7F /* AddListView.swift in Sources */,
+				FF61ACC52A2F0FB3006AE167 /* PatternCellView.swift in Sources */,
 				FFF915FE2A24BC3A003C279F /* DetailViewMode.swift in Sources */,
 				FFF915F22A231630003C279F /* Chapter+CoreDataProperties.swift in Sources */,
+				FF61ACC82A2F123E006AE167 /* FontStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,11 +369,13 @@
 				DEVELOPMENT_TEAM = KRY967CND6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ParroTalk-Info.plist";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -386,11 +402,13 @@
 				DEVELOPMENT_TEAM = KRY967CND6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ParroTalk-Info.plist";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
