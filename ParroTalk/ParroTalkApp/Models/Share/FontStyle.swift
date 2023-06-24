@@ -7,11 +7,27 @@
 
 import SwiftUI
 
+struct AccentContentModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 40))
+            .fontWeight(.bold)
+    }
+}
+
 struct BodyTitleModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.system(size: 20))
             .fontWeight(.bold)
+    }
+}
+
+struct MidiumTitleModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 20))
+            .fontWeight(.medium)
     }
 }
 
@@ -33,5 +49,15 @@ struct LabelContentModifier: ViewModifier {
             .padding([.leading, .trailing], 10)
             .background(Color("AccentColor"))
             .cornerRadius(4)
+    }
+}
+
+
+struct TextFieldTitleModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 16))
+            .fontWeight(.bold)
+            .padding([.leading, .trailing], 14)
     }
 }

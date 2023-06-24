@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct PatternCellView: View {
+    var title: String
+    var content: String
+    
     var body: some View {
-        HStack {
+        HStack(alignment: .center) {
             VStack {
-                Text("im gonna")
+                Text(title)
                     .modifier(BodyTitleModifier())
-                Text("난 ~ 할거야")
+                Text(content)
                     .modifier(BodyContentModifier())
             }
             Spacer()
@@ -26,19 +29,35 @@ struct PatternCellView: View {
                     .frame(width: 35, height: 35)
                     .foregroundColor(.accentColor)
             }
-            .padding([.top, .bottom], 20)
+            .padding(.vertical, 20)
         }
-        .padding([.leading, .trailing], 28)
+        .padding(.horizontal, 28)
         .background(.white)
         .cornerRadius(25, corners: [.bottomRight, .topLeft, .topRight])
-        .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.33), radius: 0.6)
-        .padding(27)
-        
+        .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.08), radius: 5)
     }
 }
 
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape( RoundedCorner(radius: radius, corners: corners) )
+    }
+}
+
+
+struct RoundedCorner: Shape {
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
+}
+
+
 struct PatternCellView_Previews: PreviewProvider {
     static var previews: some View {
-        PatternCellView()
+        PatternCellView(title: "I'm gonna", content: "난 ~ 할거야")
     }
 }

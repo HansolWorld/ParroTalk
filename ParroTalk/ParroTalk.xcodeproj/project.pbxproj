@@ -13,6 +13,8 @@
 		FF61ACA92A2C25F1006AE167 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF61ACA82A2C25F1006AE167 /* Launch Screen.storyboard */; };
 		FF61ACC52A2F0FB3006AE167 /* PatternCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF61ACC42A2F0FB3006AE167 /* PatternCellView.swift */; };
 		FF61ACC82A2F123E006AE167 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF61ACC72A2F123E006AE167 /* FontStyle.swift */; };
+		FF61AD1D2A35C13A006AE167 /* RememberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF61AD1C2A35C13A006AE167 /* RememberView.swift */; };
+		FF61AD1F2A35DD21006AE167 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF61AD1E2A35DD21006AE167 /* TestView.swift */; };
 		FFE8AC262A18C3E700E93B94 /* ParroTalkAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8AC252A18C3E700E93B94 /* ParroTalkAppApp.swift */; };
 		FFE8AC282A18C3E700E93B94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8AC272A18C3E700E93B94 /* ContentView.swift */; };
 		FFE8AC2A2A18C3E800E93B94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE8AC292A18C3E800E93B94 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 		FF61ACA82A2C25F1006AE167 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		FF61ACC42A2F0FB3006AE167 /* PatternCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternCellView.swift; sourceTree = "<group>"; };
 		FF61ACC72A2F123E006AE167 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
+		FF61AD1C2A35C13A006AE167 /* RememberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberView.swift; sourceTree = "<group>"; };
+		FF61AD1E2A35DD21006AE167 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		FFE8AC222A18C3E700E93B94 /* ParroTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParroTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE8AC252A18C3E700E93B94 /* ParroTalkAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParroTalkAppApp.swift; sourceTree = "<group>"; };
 		FFE8AC272A18C3E700E93B94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,10 +68,28 @@
 		FF61ACC62A2F1222006AE167 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FFF915FB2A232EFC003C279F /* DetailModel */,
+				FF61AD1B2A35A333006AE167 /* Share */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FF61AD1A2A35A30B006AE167 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FFF915F82A232221003C279F /* HomeView */,
+				FFF915FC2A232F09003C279F /* DetailView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FF61AD1B2A35A333006AE167 /* Share */ = {
+			isa = PBXGroup;
+			children = (
 				FFF915F92A232BB7003C279F /* AddSentence.swift */,
 				FF61ACC72A2F123E006AE167 /* FontStyle.swift */,
 			);
-			path = Models;
+			path = Share;
 			sourceTree = "<group>";
 		};
 		FFE8AC192A18C3E700E93B94 = {
@@ -93,9 +115,8 @@
 				FFE8AC252A18C3E700E93B94 /* ParroTalkAppApp.swift */,
 				FF61ACA82A2C25F1006AE167 /* Launch Screen.storyboard */,
 				FFF915F72A232109003C279F /* CoreDataController */,
-				FFF915F82A232221003C279F /* HomeView */,
+				FF61AD1A2A35A30B006AE167 /* View */,
 				FF61ACC62A2F1222006AE167 /* Models */,
-				FFF915FC2A232F09003C279F /* DetailView */,
 				FFE8AC292A18C3E800E93B94 /* Assets.xcassets */,
 				FFE8AC2B2A18C3E800E93B94 /* Preview Content */,
 			);
@@ -113,11 +134,11 @@
 		FFF915F72A232109003C279F /* CoreDataController */ = {
 			isa = PBXGroup;
 			children = (
-				FFF915C72A221C4A003C279F /* DataController.swift */,
 				FFF915F32A231ED2003C279F /* Sentence+CoreDataClass.swift */,
 				FFF915F42A231ED2003C279F /* Chapter+CoreDataClass.swift */,
 				FFF915EC2A231630003C279F /* Sentence+CoreDataProperties.swift */,
 				FFF915EE2A231630003C279F /* Chapter+CoreDataProperties.swift */,
+				FFF915C72A221C4A003C279F /* DataController.swift */,
 				FFF915C42A2219E0003C279F /* ChapterModel.xcdatamodeld */,
 			);
 			name = CoreDataController;
@@ -134,20 +155,21 @@
 			path = HomeView;
 			sourceTree = "<group>";
 		};
-		FFF915FB2A232EFC003C279F /* Model */ = {
+		FFF915FB2A232EFC003C279F /* DetailModel */ = {
 			isa = PBXGroup;
 			children = (
 				FFF915FD2A24BC3A003C279F /* DetailViewMode.swift */,
 				FF5A64142A1B949000D07D7F /* STT.swift */,
 			);
-			path = Model;
+			path = DetailModel;
 			sourceTree = "<group>";
 		};
 		FFF915FC2A232F09003C279F /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
 				FF5A64182A1CB53600D07D7F /* DetailView.swift */,
-				FFF915FB2A232EFC003C279F /* Model */,
+				FF61AD1E2A35DD21006AE167 /* TestView.swift */,
+				FF61AD1C2A35C13A006AE167 /* RememberView.swift */,
 			);
 			path = DetailView;
 			sourceTree = "<group>";
@@ -230,9 +252,11 @@
 				FF5A64152A1B949000D07D7F /* STT.swift in Sources */,
 				FFF915F62A231ED2003C279F /* Chapter+CoreDataClass.swift in Sources */,
 				FF5A64192A1CB53600D07D7F /* DetailView.swift in Sources */,
+				FF61AD1D2A35C13A006AE167 /* RememberView.swift in Sources */,
 				FFF915F02A231630003C279F /* Sentence+CoreDataProperties.swift in Sources */,
 				FFF915F52A231ED2003C279F /* Sentence+CoreDataClass.swift in Sources */,
 				FFF915C62A2219E0003C279F /* ChapterModel.xcdatamodeld in Sources */,
+				FF61AD1F2A35DD21006AE167 /* TestView.swift in Sources */,
 				FF5A64172A1CB50800D07D7F /* AddListView.swift in Sources */,
 				FF61ACC52A2F0FB3006AE167 /* PatternCellView.swift in Sources */,
 				FFF915FE2A24BC3A003C279F /* DetailViewMode.swift in Sources */,
@@ -370,24 +394,29 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ParroTalk-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ParroTalk;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = everybodyEnglish.rememberEnglish;
+				PRODUCT_BUNDLE_IDENTIFIER = Sol.ParroTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -403,24 +432,29 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ParroTalk-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ParroTalk;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = everybodyEnglish.rememberEnglish;
+				PRODUCT_BUNDLE_IDENTIFIER = Sol.ParroTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -17,51 +17,51 @@ struct DetailView: View {
     @State private var rememberAlert: Bool = false
     @State private var timer: Timer?
     
-    @StateObject var speechRecognizer = SpeechRecognizer()
-    
+    @StateObject var speechRecognizer: SpeechRecognizer = SpeechRecognizer()
     
     let synthesizer = AVSpeechSynthesizer()
     var chapter: FetchedResults<Chapter>.Element
-
+   
     var body: some View {
-        TabView(selection: $seletecdIndex) {
-            ForEach(Array(self.chapter.sentenceArray.enumerated()), id: \.0) { index, sentence in
-                VStack(alignment: .center) {
-                    switch self.isMode {
-                    case .test:
-                        Text("\(10 - self.timeCount)")
-                            .font(.headline)
-                            .padding(.bottom, 20)
-                        Text(self.chapter.sentenceArray[seletecdIndex].wrappedTranslate)
-                        Text(self.speechRecognizer.transcript)
-                    case .remember:
-                        Text(sentence.wrappedSentence)
-                            .onTapGesture {
-                                self.speechText(to: sentence.wrappedSentence)
-                                seletecdIndex = index
-                            }
-                        Text(sentence.wrappedTranslate)
+        VStack {
+            TabView(selection: $seletecdIndex) {
+                ForEach(Array(self.chapter.sentenceArray.enumerated()), id: \.0) { index, sentence in
+                    VStack {
+                        switch self.isMode {
+                        case .test:
+                            TestView(translate: sentence.wrappedTranslate, timeCount: timeCount, speechRecognizer: speechRecognizer)
+                        case .remember:
+                            RememberView(seletecdIndex: $seletecdIndex, sentence: sentence, index: index)
+                        }
                     }
+                    .tag(index)
                 }
-                .padding(50)
-                .tag(index)
             }
-        }
-        .tabViewStyle(PageTabViewStyle())
-        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-        .navigationBarItems(
-            trailing: Button(action: {
-                self.checkMode()
-                self.startSpeechRecognizer()
-                self.timeIntervalPage()
-            }) {
-                Image(systemName: isMode == .test ? "record.circle.fill" : "record.circle")
+            .tabViewStyle(PageTabViewStyle())
+            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+            .onAppear() {
+                UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color("AccentColor"))
+                UIPageControl.appearance().pageIndicatorTintColor = UIColor.white
             }
-        )
-        .alert("다시", isPresented: $rememberAlert) {
-            Button("Ok") {}
-        } message: {
-            Text("다시외우고 와라")
+            .alert("다시", isPresented: $rememberAlert) {
+                Button("Ok") {}
+            } message: {
+                Text("다시외우고 와라")
+            }
+            HStack {
+                Spacer()
+                Button(action: {
+                    self.checkMode()
+                    self.startSpeechRecognizer()
+                    self.timeIntervalPage()
+                }) {
+                    Image(systemName: "mic.circle.fill")
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                }
+            }
+            .padding(.horizontal, 25)
+            .padding(.vertical, 55)
         }
     }
 }
@@ -118,5 +118,16 @@ extension DetailView {
     private func checkMode() {
         self.isMode.toggle()
         self.seletecdIndex = 0
+    }
+}
+
+
+struct DetailView_Preview: PreviewProvider {
+    static var previews: some View {
+        NavigationStack {
+            ContentView()
+                .environment(\.managedObjectContext, DataController().container.viewContext)
+        }
+        .accentColor(.accentColor)
     }
 }

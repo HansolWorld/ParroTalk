@@ -16,7 +16,7 @@ class SpeechRecognizer: ObservableObject {
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
     private let recognizer: SFSpeechRecognizer?
-    @Published var transcript: String = ""
+    @Published var transcript: String = "영어로 말하세요."
     
     enum RecognizerError: Error {
         case nilRecognizer
@@ -143,7 +143,7 @@ class SpeechRecognizer: ObservableObject {
         } else {
             errorMessage += error.localizedDescription
         }
-        transcript = "<< \(errorMessage) >>"
+        transcript = "\(errorMessage)"
     }
 }
 

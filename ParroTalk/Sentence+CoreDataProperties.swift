@@ -16,6 +16,7 @@ extension Sentence {
         return NSFetchRequest<Sentence>(entityName: "Sentence")
     }
 
+    @NSManaged public var id: UUID?
     @NSManaged public var sentence: String?
     @NSManaged public var translate: String?
     @NSManaged public var date: Date?

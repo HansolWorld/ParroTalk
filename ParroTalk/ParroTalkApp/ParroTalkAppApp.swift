@@ -18,6 +18,7 @@ struct ParroTalkAppApp: App {
                     .environment(\.managedObjectContext, dataController.container.viewContext)
             }
             .accentColor(.accentColor)
+            .preferredColorScheme(.light)
         }
     }
 }

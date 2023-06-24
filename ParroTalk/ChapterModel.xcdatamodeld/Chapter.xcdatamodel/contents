@@ -2,11 +2,13 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E252" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Chapter" representedClassName="Chapter" syncable="YES">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="title" attributeType="String" defaultValueString="&quot;&quot;"/>
         <relationship name="sentences" toMany="YES" deletionRule="Nullify" destinationEntity="Sentence" inverseName="chapter" inverseEntity="Sentence"/>
     </entity>
     <entity name="Sentence" representedClassName="Sentence" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="sentence" attributeType="String"/>
         <attribute name="translate" attributeType="String" defaultValueString="번역을 추가해 주세요"/>
         <relationship name="chapter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Chapter" inverseName="sentences" inverseEntity="Chapter" spotlightIndexingEnabled="YES"/>
