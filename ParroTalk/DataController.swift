@@ -53,4 +53,9 @@ class DataController: ObservableObject {
             os_log("Failed to delete Chapter")
         }
     }
+    
+//    func updateComplete(to complete: Bool, context: NSManagedObjectContext) {
+//        let chapter = Chapter(context: context)
+//        chapter.complete = complete
+//    }
 }

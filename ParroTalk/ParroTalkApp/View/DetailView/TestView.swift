@@ -10,7 +10,9 @@ import SwiftUI
 struct TestView: View {
     
     var translate: String
+    var sentence: String
     var timeCount: Int
+    @Binding var checkTest: Bool
     @StateObject var speechRecognizer: SpeechRecognizer
     
     var body: some View {
@@ -31,20 +33,33 @@ struct TestView: View {
                 .padding(.bottom, 6)
             Text(translate)
                 .foregroundColor(Color("DisabledColor"))
-            
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 30)
         .background(Color("BackgroundColor"))
         .cornerRadius(25, corners: .allCorners)
-        .padding(10)
+        .padding(27)
+        .onChange(of: speechRecognizer.transcript) { _ in
+            self.checkTranscript()
+        }
+    }
+}
+
+
+extension TestView {
+    private func checkTranscript() {
+        if self.speechRecognizer.transcript.contains(sentence) {
+            self.speechRecognizer.stopTranscribing()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                self.checkTest = true
+            })
+        }
     }
 }
 
 
 struct TestView_Previews: PreviewProvider {
-    
     static var previews: some View {
-        TestView(translate: "문장을 말해라", timeCount: 0, speechRecognizer: SpeechRecognizer())
+        TestView(translate: "문장을 말해라", sentence: "", timeCount: 0, checkTest: .constant(false), speechRecognizer: SpeechRecognizer())
     }
 }

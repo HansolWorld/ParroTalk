@@ -12,6 +12,9 @@ struct AddListView: View {
     @State private var sentences: [AddSentence] = []
     @State private var currentSentence: String = ""
     @State private var currentTranslate: String = ""
+    private var currentState: Bool {
+        currentSentence.isEmpty || currentTranslate.isEmpty
+    }
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.dismiss) var dismiss
     
@@ -41,21 +44,23 @@ struct AddListView: View {
                             .background(Color("SecondaryColor"))
                             .cornerRadius(100, corners: .allCorners)
                     }
-                    .padding(.vertical, 20)
-                    .padding(.horizontal, 30)
+                    .padding(.top, 14)
+                    .padding(.bottom, 25)
+                    .padding(.horizontal, 24)
                     .background(Color("BackgroundColor"))
                     .cornerRadius(20, corners: .allCorners)
-                    .padding(10)
+                    .padding(.horizontal, 27)
+                    .padding(.vertical, 18)
                     
                     Button(action: {
                         addSentence()
                     }) {
                         Image(systemName: "plus.circle.fill")
                             .resizable()
-                            .frame(width: 25, height: 25)
-                            .foregroundColor(Color("AccentColor"))
+                            .frame(width: 36, height: 36)
+                            .foregroundColor(currentState ? Color.gray : Color("AccentColor"))
                     }
-                    .disabled(currentSentence.isEmpty || currentTranslate.isEmpty)
+                    .disabled(currentState)
 
                 }
                 Spacer()
@@ -88,7 +93,7 @@ struct SentenceView: View {
     
     var body: some View {
         HStack {
-            VStack {
+            VStack(alignment: .leading) {
                 Text(addSentence.sentence)
                     .modifier(BodyTitleModifier())
                 Text(addSentence.translate)

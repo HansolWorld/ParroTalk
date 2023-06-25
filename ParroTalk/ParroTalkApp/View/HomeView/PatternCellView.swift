@@ -10,6 +10,7 @@ import SwiftUI
 struct PatternCellView: View {
     var title: String
     var content: String
+    var complete: Bool
     
     var body: some View {
         HStack(alignment: .center) {
@@ -24,6 +25,7 @@ struct PatternCellView: View {
                 Text("학습전")
                     .modifier(LabelContentModifier())
                     .padding(.bottom, 15)
+                    .opacity(complete ? 0 : 1)
                 Image(systemName: "chevron.forward.circle.fill")
                     .resizable()
                     .frame(width: 35, height: 35)
@@ -58,6 +60,6 @@ struct RoundedCorner: Shape {
 
 struct PatternCellView_Previews: PreviewProvider {
     static var previews: some View {
-        PatternCellView(title: "I'm gonna", content: "난 ~ 할거야")
+        PatternCellView(title: "I'm gonna", content: "난 ~ 할거야", complete: false)
     }
 }

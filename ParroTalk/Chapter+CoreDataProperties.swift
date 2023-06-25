@@ -20,6 +20,7 @@ extension Chapter {
     @NSManaged public var title: String?
     @NSManaged public var date: Date?
     @NSManaged public var sentences: NSSet?
+    @NSManaged public var complete: Bool
     
     public var wrappedTitle: String {
         title ?? "Unknown Title"

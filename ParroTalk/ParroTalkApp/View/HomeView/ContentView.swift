@@ -18,7 +18,7 @@ struct ContentView: View {
             if chapters.isEmpty {
                 Text("+ 버튼을 눌러\n 오늘의 스터디를 추가해 주세요.")
                     .foregroundColor(.accentColor)
-                PatternCellView(title: "Empty", content: "텅 빈.")
+                PatternCellView(title: "Empty", content: "텅 빈.", complete: false)
                     .padding(.horizontal, 27)
             } else {
                 List(chapters, id:\.self) { chapter in
@@ -26,7 +26,7 @@ struct ContentView: View {
                         NavigationLink(destination: DetailView(chapter: chapter)) {
                             EmptyView()
                         }
-                        PatternCellView(title: chapter.wrappedTitle, content: "나는 ~ 할거야")
+                        PatternCellView(title: chapter.wrappedTitle, content: "나는 ~ 할거야", complete: chapter.complete)
                     }
                     .listRowSeparator(.hidden)
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {

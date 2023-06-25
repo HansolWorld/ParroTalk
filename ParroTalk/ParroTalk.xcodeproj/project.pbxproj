@@ -115,8 +115,8 @@
 				FFE8AC252A18C3E700E93B94 /* ParroTalkAppApp.swift */,
 				FF61ACA82A2C25F1006AE167 /* Launch Screen.storyboard */,
 				FFF915F72A232109003C279F /* CoreDataController */,
-				FF61AD1A2A35A30B006AE167 /* View */,
 				FF61ACC62A2F1222006AE167 /* Models */,
+				FF61AD1A2A35A30B006AE167 /* View */,
 				FFE8AC292A18C3E800E93B94 /* Assets.xcassets */,
 				FFE8AC2B2A18C3E800E93B94 /* Preview Content */,
 			);

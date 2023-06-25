@@ -34,14 +34,14 @@ struct RememberView: View {
             Text(sentence.wrappedSentence)
                 .modifier(BodyTitleModifier())
             Text(sentence.wrappedTranslate)
-                .modifier(BodyTitleModifier())
+                .modifier(MidiumTitleModifier())
                 .foregroundColor(Color("DisabledColor"))
         }
         .padding(.vertical, 35)
         .frame(maxWidth: .infinity)
         .background(Color("BackgroundColor"))
         .cornerRadius(25, corners: .allCorners)
-        .padding(10)
+        .padding(27)
     }
 }
 

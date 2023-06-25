@@ -16,6 +16,7 @@ struct DetailView: View {
     @State private var isMode: Mode = .remember
     @State private var rememberAlert: Bool = false
     @State private var timer: Timer?
+    @State private var checkTest: Bool = false
     
     @StateObject var speechRecognizer: SpeechRecognizer = SpeechRecognizer()
     
@@ -29,7 +30,7 @@ struct DetailView: View {
                     VStack {
                         switch self.isMode {
                         case .test:
-                            TestView(translate: sentence.wrappedTranslate, timeCount: timeCount, speechRecognizer: speechRecognizer)
+                            TestView(translate: sentence.wrappedTranslate, sentence: sentence.wrappedSentence, timeCount: timeCount, checkTest: $checkTest, speechRecognizer: speechRecognizer)
                         case .remember:
                             RememberView(seletecdIndex: $seletecdIndex, sentence: sentence, index: index)
                         }
@@ -91,14 +92,15 @@ extension DetailView {
         case .test:
             self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
                 self.timeCount += 1
+                if self.checkTest {
+                    self.timeCount = 0
+                    self.speechRecognizer.transcribe()
+                    self.seletecdIndex += 1
+                    self.checkTest = false
+                }
                 if self.timeCount == 10 {
-                    if self.speechRecognizer.transcript.contains(self.currentSentence) {
-                        self.timeCount = 0
-                        self.seletecdIndex += 1
-                    } else {
-                        stopTimer()
-                        self.rememberAlert = true
-                    }
+                    stopTimer()
+                    self.rememberAlert = true
                 }
                 
                 if self.seletecdIndex == chapter.sentenceArray.count {
